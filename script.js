@@ -6,27 +6,29 @@ const GameBoard = (function() {
     // creates an array with 9 elements 
     for (i = 0; i < 9; i++) {
         board.push('');
-  
     }
-    console.log(board)
+    
     //create a div for each element in the "board" array
     board.forEach( (value, index) => { 
         {
             let boardContainer = document.getElementById("boardContainer")
             let gridUnit = document.createElement("div")
-            gridUnit.setAttribute("id", `id-${index}`);
-            console.log("id: ", index);
+            gridUnit.setAttribute("id", `${index}`);
+            // console.log("id: ", index);
             // let div = document.createElement('div');
             gridUnit.classList.add('box');
-            // listens for click 
+            // listens for click on each square 
             gridUnit.addEventListener("click", function (e) {
+                //clicked = the id of the square that was clicked 
                 let clicked = e.target.id
+                console.log(clicked)
                 //once clicked, changes state of square (in this case background colour)
-                gridUnit.style.backgroundColor = "red"; 
+                gridUnit.style.backgroundColor = "red";
+                board[clicked] = "red"
+                console.log(board)
             })
             boardContainer.appendChild(gridUnit)
         }
-
     }); 
 
     //player factory
