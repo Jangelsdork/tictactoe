@@ -18,7 +18,12 @@ const GameBoard = (function() {
             console.log("id: ", index);
             // let div = document.createElement('div');
             gridUnit.classList.add('box');
-            gridUnit.addEventListener("click", function (e) {console.log("clicked: ", e.path[0])} )
+            // listens for click 
+            gridUnit.addEventListener("click", function (e) {
+                let clicked = e.target.id
+                //once clicked, changes state of square (in this case background colour)
+                gridUnit.style.backgroundColor = "red"; 
+            })
             boardContainer.appendChild(gridUnit)
         }
 
