@@ -5,8 +5,10 @@
 #boardContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
     justify-items: center;
+    gap: 10px;
+
 
 }
 
@@ -14,6 +16,4 @@
     height: 50px;
     width: 50px;
     background-color: aquamarine;
-    gap: 10px;
-    margin-top: 10px;
 }

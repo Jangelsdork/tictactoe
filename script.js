@@ -10,24 +10,40 @@ const GameBoard = (function() {
     }
     console.log(board)
     //create a div for each element in the "board" array
-    board.forEach( () => { 
+    board.forEach( (value, index) => { 
         {
             let boardContainer = document.getElementById("boardContainer")
             let gridUnit = document.createElement("div")
+            gridUnit.setAttribute("id", `id-${index}`);
+            console.log("id: ", index);
             // let div = document.createElement('div');
             gridUnit.classList.add('box');
+            gridUnit.addEventListener("click", function (e) {console.log("clicked: ", e.path[0])} )
             boardContainer.appendChild(gridUnit)
         }
 
     }); 
-})();
 
+    //player factory
+    const Player = (name, piece) => {
+        return {name, piece}
+    }
 
-const Player = (name, piece) => {
-    const playerName = () => name; 
-    const playerPiece = () => piece;
+    const playerOne = Player('player 1', "x")
+    const playerTwo = Player('Player 2', "o") 
+    
+    const playerTurn = (function () {
 
-    return {name, piece}
+    }
+
+    )
 }
+
+)();
+
+
+
+
+
 
 const Gameplay = () => {}
