@@ -14,8 +14,6 @@ const GameBoard = (function() {
             let boardContainer = document.getElementById("boardContainer")
             let gridUnit = document.createElement("div")
             gridUnit.setAttribute("id", `${index}`);
-            // console.log("id: ", index);
-            // let div = document.createElement('div');
             gridUnit.classList.add('box');
             // listens for click on each square 
             gridUnit.addEventListener("click", function (e) {
@@ -23,9 +21,22 @@ const GameBoard = (function() {
                 let clicked = e.target.id
                 console.log(clicked)
                 //once clicked, changes state of square (in this case background colour)
-                gridUnit.style.backgroundColor = "red";
-                board[clicked] = "red"
-                console.log(board)
+                console.log("turns = " + turns)
+                //updates "board" array with status of each square
+                //ADD if statement declaring red or blue depending on turn 
+                if (turns%2 === 0 && board[clicked] === ""){
+                    gridUnit.style.backgroundColor = "red";
+                    board[clicked] = "o";
+                    turns ++;
+                    console.log(board)
+                    }
+                else if (turns%2 === 1 && board[clicked] === ""){
+                    gridUnit.style.backgroundColor = "blue";
+                    board[clicked] = "x";
+                    console.log(board)
+                    turns ++;
+                }
+                
             })
             boardContainer.appendChild(gridUnit)
         }
@@ -39,11 +50,14 @@ const GameBoard = (function() {
     const playerOne = Player('player 1', "x")
     const playerTwo = Player('Player 2', "o") 
     
-    const playerTurn = (function () {
+    //define what happens 
+    const playerCount = (function () {
 
     }
 
     )
+
+    var turns = 0
 }
 
 )();
