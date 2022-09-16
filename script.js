@@ -22,6 +22,16 @@ const GameBoard = (function() {
                 console.log(clicked)
                 //once clicked, changes state of square (in this case background colour)
                 console.log("turns = " + turns)
+                console.log(winner)
+                //check for draw
+                const DrawCheck = (function () {
+                    if (turns === 8 && winner == false) {
+                    console.log("its a draw!")
+                    }
+                    else {
+                        console.log("ya bum")
+                    }
+                    })();
                 //updates "board" array with status of each square
                 //ADD if statement declaring red or blue depending on turn 
                 if (turns%2 === 0 && board[clicked] === ""){
@@ -50,14 +60,10 @@ const GameBoard = (function() {
     const playerOne = Player('player 1', "x")
     const playerTwo = Player('Player 2', "o") 
     
-    //define what happens 
-    const playerCount = (function () {
-
-    }
-
-    )
-
+    //check for winning combination 
     var turns = 0
+
+    var winner = false
 }
 
 )();
