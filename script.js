@@ -20,31 +20,30 @@ const GameBoard = (function() {
                 //clicked = the id of the square that was clicked 
                 let clicked = e.target.id
                 console.log(clicked)
-                //once clicked, changes state of square (in this case background colour)
                 console.log("turns = " + turns)
                 console.log(winner)
+                
                 //check for draw
                 const DrawCheck = (function () {
                     if (turns === 8 && winner == false) {
                     console.log("its a draw!")
                     }
-                    else {
-                        console.log("ya bum")
-                    }
                     })();
                 //updates "board" array with status of each square
-                //ADD if statement declaring red or blue depending on turn 
                 if (turns%2 === 0 && board[clicked] === ""){
+                    //once clicked, changes state of square (in this case background colour)
                     gridUnit.style.backgroundColor = "red";
                     board[clicked] = "o";
                     turns ++;
                     console.log(board)
+                    chickenDinna()
                     }
                 else if (turns%2 === 1 && board[clicked] === ""){
                     gridUnit.style.backgroundColor = "blue";
                     board[clicked] = "x";
                     console.log(board)
                     turns ++;
+                    chickenDinna()
                 }
                 
             })
@@ -64,6 +63,32 @@ const GameBoard = (function() {
     var turns = 0
 
     var winner = false
+
+    const winningCombos = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [0,4,8],
+            [2,4,6],
+    ]
+
+    function chickenDinna() {
+        winningCombos.forEach(combo => {
+            // console.log(combo[1])
+            // console.log(board[combo[0]])
+            // console.log(board[combo[1]])
+            // console.log(board[combo[2]])
+            if(board[combo[0]] && (board[combo[1]]) && (board[combo[2]]) === 'x'){
+            console.log("winner")
+            }
+        })  
+         
+    
+    }
+
 }
 
 )();
