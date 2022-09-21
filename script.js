@@ -77,16 +77,19 @@ const GameBoard = (function() {
 
     function chickenDinna() {
         winningCombos.forEach(combo => {
-            // console.log(combo[1])
-            // console.log(board[combo[0]])
-            // console.log(board[combo[1]])
-            // console.log(board[combo[2]])
-            if(board[combo[0]] && (board[combo[1]]) && (board[combo[2]]) === 'x'){
-            console.log("winner")
+            if((board[combo[0]] === "x" && (board[combo[1]]) === "x" && (board[combo[2]])) === 'x'){
+                console.log("winner is blue")
+                winner = true 
+            }
+
+            else if((board[combo[0]] === "o" && (board[combo[1]]) === "o" && (board[combo[2]])) === 'o'){
+                console.log("winner is red")
+                winner = true 
+            }
+            else if(turns === 9 && winner === false){
+                console.log("it's a draw")
             }
         })  
-         
-    
     }
 
 }
